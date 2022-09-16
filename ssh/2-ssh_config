@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+ssh 4812-web-01@54.226.52.61
+PasswordAuthentication no
