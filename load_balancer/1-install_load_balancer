@@ -7,11 +7,13 @@ echo "ENABLED=1" > /etc/default/haproxy
 
 echo "
         bind *:80
-	mode http
+        mode http
         default_backend haproxy_httpd
         balance roundrobin
-        server 4812-web-01 34.234.90.21
-        server 4812-web-02 52.91.90.202
+	option httpclose
+        option forwardfor
+        server 4812-web-01 34.234.90.21:80 check
+        server 4812-web-02 52.91.90.202:80 check
 " >> /etc/haproxy/haproxy.cfg
 
 sudo service haproxy start
