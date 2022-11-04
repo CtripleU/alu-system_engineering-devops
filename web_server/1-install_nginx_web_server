@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Install Nginx on a server
+# Nginx should be listening on port 80
+# Return a page that contains the string 'Holberton School'
+
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo su
+echo 'Holberton School!' > /var/www/html/index.html
+service nginx start
