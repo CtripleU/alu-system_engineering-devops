@@ -17,7 +17,7 @@ SERVER_CONFIG=\
 		try_files \$uri \$uri/ =404;
 	}
 	if (\$request_filename ~ redirect_me){
-		rewrite ^ https://https://youtu.be/F90Cw4l-8NY permanent;
+		rewrite ^ https://youtu.be/F90Cw4l-8NY permanent;
 	}
 }"
 
