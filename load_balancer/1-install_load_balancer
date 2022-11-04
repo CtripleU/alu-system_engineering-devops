@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Install and configure HAProxy on loadbalancer server
+
+sudo apt-get -y update
+sudo apt-get -y install haproxy
+echo "ENABLED=1" > /etc/default/haproxy
+
+echo "
+        bind *:80
+	mode http
+        default_backend haproxy_httpd
+        balance roundrobin
+        server 4812-web-01 34.234.90.21
+        server 4812-web-02 52.91.90.202
+" >> /etc/haproxy/haproxy.cfg
+
+sudo service haproxy start
