@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Run nginx as nginx user. Nginx must be listening on all active IPs on port 808
+
+lsof -ti tcp:8080 | xargs kill
+chmod 777 /etc/nginx/nginx.conf
+sed -i 's/80 default_server/8080 default_server/g' /etc/nginx/sites-enabled/default
+sed -i 's/80 default_server/8080 default_server/g' /etc/nginx/sites-available/default
+su nginx
+sudo service nginx restart
