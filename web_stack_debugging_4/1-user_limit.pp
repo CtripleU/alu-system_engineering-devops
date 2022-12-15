@@ -5,4 +5,3 @@ exec { 'change user limits':
   command  => 'sed -i -e "s/nofile 5/nofile 50000/" /etc/security/limits.conf';\
   sed -i -e "s/nofile 4/nofile 40000/" /etc/security/limits.conf',
 }
-
