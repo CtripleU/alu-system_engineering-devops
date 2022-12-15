@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # refactor task1 to fit new requirements.
-lsof -ti tcp:8080 | xargs kill
+pkill -f apache2
 chmod 777 /etc/nginx/nginx.conf
 sed -Ei 's/\s*#?\s*user .*/user nginx;/' /etc/nginx/nginx.conf
 sed -Ei 's/(listen (\[::\]:)?80) /\180 /' /etc/nginx/sites-enabled/default
