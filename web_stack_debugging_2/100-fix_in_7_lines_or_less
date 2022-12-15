@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # refactor task1 to fit new requirements.
+sed -i "s/#user www-data/user nginx/" /etc/nginx/nginx.conf
+sed -i 's/(listen (\[::\]:)?80) /\180 /' /etc/nginx/sites-enabled/default
 pkill -f apache2
 chmod 644 /etc/nginx/nginx.conf
-sed -Ei 's/\s*#?\s*user .*/user nginx;/' /etc/nginx/nginx.conf
-sed -Ei 's/(listen (\[::\]:)?80) /\180 /' /etc/nginx/sites-enabled/default
 sudo -u nginx service nginx restart
